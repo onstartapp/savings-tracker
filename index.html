@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Tracker - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading data...</div>
+        </div>
+    </div>
+
+    <div class="app-section" id="appContent" style="display: none;">
+        <div class="summary-section">
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card" id="totalSavingsCard">
+                    <div class="stat-title">Total Savings</div>
+                    <div class="stat-value" id="totalSavings">0 TL</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Target Amount</div>
+                    <div class="stat-value" id="targetAmount">10000 TL</div>
+                </div>
+                <div class="stat-card" id="remainingAmountCard">
+                    <div class="stat-title">Remaining to Target</div>
+                    <div class="stat-value" id="remainingAmount">0 TL</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-label">Progress</div>
+                    <div class="percentage-display" id="percentageAchieved">0%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+        <div class="input-section">
+            <div class="quick-amounts-grid">
+                <button type="button" class="quick-amount-btn" data-amount="50">50 TL</button>
+                <button type="button" class="quick-amount-btn" data-amount="100">100 TL</button>
+                <button type="button" class="quick-amount-btn" data-amount="200">200 TL</button>
+                <button type="button" class="quick-amount-btn" data-amount="250">250 TL</button>
+                <button type="button" class="quick-amount-btn" data-amount="500">500 TL</button>
+                <button type="button" class="quick-amount-btn" data-amount="1000">1000 TL</button>
+            </div>
+            <input type="number" id="amountInput" placeholder="Amount to Add">
+            <textarea id="descriptionInput" placeholder="Description (optional)" rows="2"></textarea>
+            <button id="addAmountButton" class="full-width-btn">Add</button>
+        </div>
+
+        <div class="history-section">
+            <h2>Transaction History</h2>
+            <ul id="transactionList">
+            </ul>
+        </div>
+        <!-- Footer User Info (now just below history-section) -->
+        <div class="footer-user-info">
+            <span id="userEmail"></span>
+            <button id="logoutButton" class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
