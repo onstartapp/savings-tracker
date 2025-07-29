@@ -406,15 +406,30 @@ body {
     
     .input-section {
         flex-direction: column;
+        align-items: stretch;
+        gap: 0;
     }
-    
-    .input-section input[type="number"] {
-        min-width: auto;
+    .input-section > * {
         width: 100%;
+        box-sizing: border-box;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 12px;
     }
-    
-    .summary-section {
-        grid-template-columns: 1fr;
+    .input-section > *:last-child {
+        margin-bottom: 0;
+    }
+    .quick-amounts-grid {
+        margin-bottom: 12px;
+    }
+    #descriptionInput {
+        margin-bottom: 12px;
+    }
+    #addAmountButton.full-width-btn {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
