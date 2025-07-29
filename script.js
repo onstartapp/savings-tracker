@@ -156,7 +156,7 @@ function loadTransactions() {
     }
 
     db.collection("transactions")
-        .where("userEmail", "==", currentUser.email)
+        // .where("userEmail", "==", currentUser.email) // Remove this line to fetch all transactions
         .onSnapshot((snapshot) => {
             transactionList.innerHTML = ''; // Clear list
             totalSavings = 0; // Reset total savings
